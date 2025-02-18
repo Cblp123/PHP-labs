@@ -1,14 +1,14 @@
 <?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $name = trim($_POST['name'] ?? '');
+        $specialty = trim($_POST['specialty'] ?? '');
         $date = trim($_POST['date'] ?? '');
-        $type = trim($_POST['type'] ?? '');
-        $doctor = trim($_POST['doctor'] ?? '');
         $time = trim($_POST['time'] ?? '');
+        $phone = trim($_POST['phone'] ?? '');
 
         $csvFile = 'data.csv';
 
-        $dataRow = [$name, $date, $type, $doctor, $time];
+        $dataRow = [$name, $specialty, $date, $time, $phone];
 
         if (($file = fopen($csvFile, 'a')) !== false) {
             fputcsv($file, $dataRow);
